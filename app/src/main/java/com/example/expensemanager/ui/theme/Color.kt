@@ -9,3 +9,4 @@ val ThemePink = Color(0xFFCD4FF7)
 
 val White = Color(0xFFFFFFFF)
 val White60= Color(0x99FFFFFF)
+val White6 = Color(0xFFFFFFF)

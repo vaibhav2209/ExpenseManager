@@ -1,4 +1,4 @@
-package com.example.expensemanager.loginScreen
+package com.example.expensemanager.feature_login.presentation.login
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -25,11 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.expensemanager.R
-import com.example.expensemanager.component.Loader
+import com.example.expensemanager.feature_login.presentation.login.components.CustomTextField
 import com.example.expensemanager.navigation.Screen
 import com.example.expensemanager.ui.theme.*
-import com.example.expensemanager.utils.Constants
-import com.example.expensemanager.utils.Resource
+import com.example.expensemanager.common.utils.Constants
+import com.example.expensemanager.common.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -39,9 +39,9 @@ fun LoginScreen(
     navController: NavController,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
-
     val name by viewModel.userData.observeAsState()
     LoginScreenBody(navController = navController)
+    viewModel.signInUserWithEmailAndPassword("vaibhavpatel221997@gmail.com", "123456" )
 }
 
 @ExperimentalCoroutinesApi

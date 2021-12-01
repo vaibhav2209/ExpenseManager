@@ -1,4 +1,4 @@
-package com.example.expensemanager.component
+package com.example.expensemanager.common.component
 
 import androidx.annotation.RawRes
 import androidx.compose.foundation.layout.Arrangement

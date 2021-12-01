@@ -1,4 +1,4 @@
-package com.example.expensemanager.loginScreen
+package com.example.expensemanager.feature_login.presentation.login.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height

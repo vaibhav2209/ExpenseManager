@@ -1,4 +1,4 @@
-package com.example.expensemanager.utils
+package com.example.expensemanager.common.utils
 
 object Constants {
 
@@ -8,6 +8,6 @@ object Constants {
     const val loginUsing = "Or, login with.."
     const val newToExpenseManager = "New to Expense Manager?"
     const val signUp = "Sign Up"
-
+    const val UNKNOWN_ERROR = "Unknown error occurred"
 
 }

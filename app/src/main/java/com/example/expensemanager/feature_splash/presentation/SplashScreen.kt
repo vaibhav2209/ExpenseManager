@@ -1,4 +1,4 @@
-package com.example.expensemanager.splashScreen
+package com.example.expensemanager.feature_splash.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
