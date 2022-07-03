@@ -1,6 +1,5 @@
-package com.example.expensemanager.feature_login.domain.mapper
+package com.example.expensemanager.auth.domain.mapper
 
-import com.example.expensemanager.feature_login.domain.model.RegisterUser
 import com.example.expensemanager.model.User
 import com.google.firebase.auth.FirebaseUser
 

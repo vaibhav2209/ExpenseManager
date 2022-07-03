@@ -1,4 +1,4 @@
-package com.example.expensemanager.feature_login.domain.model
+package com.example.expensemanager.auth.domain.model
 
 data class RegisterUser(
     val username:String,

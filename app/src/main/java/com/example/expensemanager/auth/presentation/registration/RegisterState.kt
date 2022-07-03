@@ -1,4 +1,4 @@
-package com.example.expensemanager.feature_login.presentation.registration
+package com.example.expensemanager.auth.presentation.registration
 
 import com.example.expensemanager.model.User
 

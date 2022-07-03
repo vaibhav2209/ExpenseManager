@@ -7,13 +7,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.expensemanager.R
 import com.example.expensemanager.ui.theme.ThemeBackgroundDark
 
 @Composable
-fun Loader(
-
-) {
+fun Loader() {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -23,9 +22,15 @@ fun Loader(
             lottieFile = R.raw.loading,
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White.copy(0.06f)),
+//                .background(Color.White.copy(0.06f)),
         )
 
 
     }
+}
+
+@Preview
+@Composable
+fun PreviewLoader() {
+    Loader()
 }

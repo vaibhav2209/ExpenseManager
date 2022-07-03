@@ -1,7 +1,7 @@
-package com.example.expensemanager.feature_login.presentation.login.components
+package com.example.expensemanager.auth.presentation.login.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -15,13 +15,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.expensemanager.ui.theme.*
 
 @Composable
-fun CustomTextField(
+fun AppTextField(
+    modifier: Modifier = Modifier,
     value: String = "",
-    hint :String = "",
+    hint :String,
     isError:Boolean = false,
     keyboardType: KeyboardType = KeyboardType.Text,
     maxLine:Int = 1,
@@ -32,7 +34,6 @@ fun CustomTextField(
         mutableStateOf(keyboardType == KeyboardType.Password)
     }
 
-
     var isPasswordVisible by remember {
         mutableStateOf(false)
     }
@@ -41,6 +42,12 @@ fun CustomTextField(
         value = value,
         onValueChange = onValueChange,
         textStyle = RegularDescription1,
+        label = {
+            Text(
+                text = hint,
+                style = RegularDescription1_60
+            )
+        },
         placeholder = {
             Text(
                 text = hint,
@@ -67,12 +74,13 @@ fun CustomTextField(
                                 (isPasswordVisible) Icons.Filled.VisibilityOff
                             else
                                 Icons.Filled.Visibility ,
-                        contentDescription = "password"
+                        contentDescription = "password",
+                        tint = White
                     )
                 }
             }
         },
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(50.dp)
             .clip(RoundedCornerShape(12.dp)),
@@ -84,4 +92,27 @@ fun CustomTextField(
             unfocusedIndicatorColor = Color.Transparent
         )
     )
+}
+
+@Preview
+@Composable
+fun PreviewCustomText() {
+    val value = remember {
+        mutableStateOf("")
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(ThemeBackgroundDark),
+        verticalArrangement = Arrangement.Center
+    ) {
+        AppTextField(
+            hint = "Name",
+            keyboardType = KeyboardType.Password,
+            onValueChange = {
+                value.value = it
+            })
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.expensemanager.feature_login.presentation.login
+package com.example.expensemanager.auth.presentation.login
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Alignment.Companion.Center
@@ -25,11 +24,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.expensemanager.R
-import com.example.expensemanager.feature_login.presentation.login.components.CustomTextField
+import com.example.expensemanager.auth.presentation.login.components.AppTextField
 import com.example.expensemanager.navigation.Screen
 import com.example.expensemanager.ui.theme.*
 import com.example.expensemanager.common.utils.Constants
-import com.example.expensemanager.common.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -39,9 +37,7 @@ fun LoginScreen(
     navController: NavController,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
-    val name by viewModel.userData.observeAsState()
     LoginScreenBody(navController = navController)
-    viewModel.signInUserWithEmailAndPassword("vaibhavpatel221997@gmail.com", "123456" )
 }
 
 @ExperimentalCoroutinesApi
@@ -87,19 +83,19 @@ fun LoginScreenBody(
                 .height(24.dp))
 
             LoginFields(
-                email = viewModel.userEmail.value,
-                password = viewModel.userPassword.value,
+                email ="",
+                password = "",
                 onEmailChange = {
-                    viewModel.setUserEmail(it)
+
                 },
                 onPasswordChange = {
-                    viewModel.setUserPassword(it)
+
                 },
                 emailError = emailError,
                 passwordError = passwordError,
             ) {
-                val email = viewModel.userEmail.value
-                val password = viewModel.userPassword.value
+                val email = ""
+                val password = "viewModel.userPassword.value"
 
                 emailError = (email.isEmpty() || '@' !in email || email.count() < 5)
                 passwordError =  (password.isEmpty())
@@ -161,20 +157,6 @@ fun LoginScreenBody(
         )
     }
 
-    when(val result = viewModel.userData.value){
-        is Resource.Loading->{
-
-        }
-
-        is Resource.Success->{
-
-        }
-
-        is Resource.Error->{
-
-        }
-    }
-
 }
 
 @Composable
@@ -199,7 +181,7 @@ fun LoginFields(
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        CustomTextField(
+        AppTextField(
             value = email,
             hint = Constants.email,
             keyboardType = KeyboardType.Email,
@@ -211,7 +193,7 @@ fun LoginFields(
             .height(12.dp)
             .fillMaxWidth())
 
-        CustomTextField(
+        AppTextField(
             value = password,
             hint = Constants.password,
             keyboardType = KeyboardType.Password,
@@ -227,7 +209,7 @@ fun LoginFields(
             onClick = onLoginBtnClick,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
+                .height(60.dp)
                 .background(
                     color = ThemeBlue,
                     shape = RoundedCornerShape(12.dp)
